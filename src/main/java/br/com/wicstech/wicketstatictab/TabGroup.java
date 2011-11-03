@@ -20,8 +20,7 @@ import org.apache.wicket.model.Model;
 public class TabGroup extends Panel implements IHeaderContributor{
 	private static final long serialVersionUID = 7472888933369223925L;
 	
-	private static final ResourceReference JS_PROTOTYPE = new ResourceReference(TabGroup.class, "libraries/prototype.js"),
-	JS_ABAS = new ResourceReference(TabGroup.class, "js/abas.js");
+	private static final ResourceReference JS_ABAS = new ResourceReference(TabGroup.class, "js/abas.js");
 	private Tab[] tabs;
 
 	
@@ -43,7 +42,6 @@ public class TabGroup extends Panel implements IHeaderContributor{
 
 
 	public void renderHead(IHeaderResponse response) {
-		response.renderJavascriptReference(JS_PROTOTYPE, "prototype");
 		response.renderJavascriptReference(JS_ABAS, "abas");
 		StringBuilder builder = new StringBuilder("Event.observe(window, \"load\", FactoryAbas.getNewAba.bind(FactoryAbas, \"");
 		for (Tab tab : tabs) {
