@@ -2,7 +2,6 @@ package br.com.wicstech.wicketstatictab;
 
 import java.util.Arrays;
 
-import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
@@ -10,7 +9,6 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.Model;
 
 /**
  * Grupo de abas.
@@ -20,7 +18,7 @@ import org.apache.wicket.model.Model;
 public class TabGroup extends Panel implements IHeaderContributor{
 	private static final long serialVersionUID = 7472888933369223925L;
 	
-	private static final ResourceReference JS_ABAS = new ResourceReference(TabGroup.class, "js/abas.js");
+	private static final ResourceReference JS_ABAS = new ResourceReference(TabGroup.class, "abas.js");
 	private Tab[] tabs;
 
 	
@@ -34,7 +32,8 @@ public class TabGroup extends Panel implements IHeaderContributor{
 			protected void populateItem(ListItem<Tab> item) {
 				Tab tab = item.getModelObject();
 				Label labelBotao = new Label("botao", tab.getTabName());
-				labelBotao.add(new AttributeModifier("id", true, new Model<String>(tab.getBotaoId())));
+				labelBotao.setMarkupId(tab.getBotaoId());
+				labelBotao.setOutputMarkupId(true);
 				item.add(labelBotao);
 			}
 		});
