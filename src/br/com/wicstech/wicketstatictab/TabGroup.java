@@ -52,14 +52,14 @@ public class TabGroup extends Panel implements IHeaderContributor {
 
 	public void renderHead(IHeaderResponse response) {
 		response.renderJavascriptReference(JS_ABAS, "abas");
-		StringBuilder builder = new StringBuilder("Event.observe(window, \"load\", FactoryAbas.getNewAba.bind(FactoryAbas, \"");
+		StringBuilder builder = new StringBuilder("FactoryAbas.getNewAba(\"");
 		for (Tab tab : tabs) {
 			builder.append(tab.getBotaoId());
 			builder.append(',');
 			builder.append(tab.getIdConteudo());
 			builder.append(';');
 		}
-		builder.append("\"));");
-		response.renderJavascript(builder, "abasBuilder");
+		builder.append("\")");
+		response.renderOnLoadJavascript(builder.toString());
 	}
 }
