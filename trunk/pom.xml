@@ -40,4 +40,8 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+	<scm>
+		<url>http://www.linkedin.com/in/sergioeduardo</url>
+		<developerConnection>Sergio Eduardo D Oliveira</developerConnection>
+	</scm>
 </project>
